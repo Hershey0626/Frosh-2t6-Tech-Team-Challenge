@@ -14,7 +14,9 @@ Thanks for your interest in joining the F!ROSH 2T6 Tech Team! We've prepared a s
 2. **Make sure Node.js is installed** — download it at [nodejs.org](https://nodejs.org/en) if you haven't already
 3. **Navigate to the project directory** in your terminal
 4. Run `npm install` to install dependencies
-5. Run `npm start` and visit [http://localhost:3000](http://localhost:3000) — you should see a placeholder page.
+5. Run `npm start` and visit [http://localhost:3000](http://localhost:3000) — you should see this placeholder page:
+<img width="1919" height="1070" alt="image" src="https://github.com/user-attachments/assets/72533ab2-4ddc-49d4-b4a7-01923a1a8810" />
+
 
 ---
 
