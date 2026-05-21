@@ -1,6 +1,405 @@
-/* TODO: Add your styles here */
-
+/* Core Page Theme and Layout */
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f7f6fa; /* Ultra soft light backdrop */
+  color: #1f2937;
 }
+
+/* THE F!ROSH PURPLE BANNER */
+.frosh-banner {
+  background-color: #3b0158;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.banner-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.frosh-logo {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+}
+
+.banner-title {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/* Navigation links */
+.banner-nav {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  color: #d1d5db;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link.active {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+}
+
+.nav-link.external {
+  color: #f59e0b;
+}
+
+.nav-link.external:hover {
+  background-color: rgba(245, 158, 11, 0.15);
+}
+
+/* Make the entire website page take up the whole space */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Forces the app to occupy at least the full screen height */
+}
+
+.main-content {
+  flex: 1; /* Automatically expands to push the footer to the absolute bottom */
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.page-view {
+  background: white;
+  padding: 3.5rem 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto; /* Keeps it centered horizontally */
+  text-align: center;
+}
+
+.page-view h2 {
+  margin-top: 0;
+  color: #3b0158;               
+  padding-bottom: 1rem;
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+
+.page-view p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #4b5563;              
+  margin: 0;
+}
+
+/* Clickable Date Picker Bar Styles */
+.date-selector-bar {
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 10px;
+  gap: 12px;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.06);
+  justify-content: space-between;
+}
+
+.date-tab-button {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #4b5563;
+}
+
+.date-tab-button:hover {
+  background-color: #f3f4f6;
+  color: #3b0158;
+}
+
+.date-tab-button.selected {
+  background-color: #3b0158;
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 10px 20px -4px rgba(59, 1, 88, 0.3); 
+}
+
+.tab-day-name {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+  opacity: 0.8;
+}
+
+.date-tab-button.selected .tab-day-name {
+  opacity: 1;
+}
+
+.tab-date-number {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.current-day-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #3b0158;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* Schedule grids styling */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+.event-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  border-radius: 16px; /* Smooth rounded interface style */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Make cards lift when hovered */
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.07), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.event-tag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  font-size: 0.95rem; 
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.04em;
+}
+
+.event-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+/* Center Align Headings horizontally and vertically with Icon Badge */
+.event-main-info {
+  display: flex;
+  align-items: center; 
+  gap: 16px;
+}
+
+/* Modern outer soft-shadow container for icons */
+.event-icon-badge {
+  font-size: 1.6rem;
+  background: #ffffff;
+  padding: 8px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  height: 48px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06), inset 0 -2px 0 rgba(0, 0, 0, 0.02); 
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.event-text-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+}
+
+.event-body h4 {
+  margin: 0 !important;
+  font-size: 1.25rem !important;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.2;
+}
+
+.event-location {
+  font-weight: 600;
+  color: #4b5563;
+  margin: 0;
+  font-size: 0.88rem !important;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pin-icon {
+  font-size: 0.95rem;
+}
+
+.event-description {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin: 4px 0 0 0;
+  line-height: 1.5;
+}
+
+.event-description a {
+  color: #7c3aed;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+/* **** Specific styling */
+.mystery-card {
+  background: linear-gradient(180deg, #ffffff 0%, #faf9fe 100%);
+  border: 1px dashed #7c3aed !important;
+}
+
+/* Bottom Footer */
+.frosh-footer {
+  background-color: #3b0158;
+  color: #ffffff;
+  padding: 2.5rem 2rem 1.5rem 2rem;
+  margin-top: auto; 
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 1.5rem;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-brand {
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  font-size: 1.1rem;
+}
+
+.footer-divider {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-subtext {
+  color: #d1d5db;
+  font-size: 0.9rem;
+}
+
+.footer-right {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-link {
+  background: none;
+  border: none;
+  color: #d1d5db;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 1.2rem;
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+/* Tablet & Mobile Layout adjustment */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  .footer-left {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .footer-divider {
+    display: none;
+  }
+}
+
+/* Colour Scheme */
+.bg-purple { background-color: #7c3aed; }
+.border-purple { border-top: 4px solid #7c3aed; }
+
+.bg-dark-purple { background-color: #4c1d95; }
+.border-dark-purple { border-top: 4px solid #4c1d95; }
+
+.bg-yellow { background-color: #eab308; color: #1f2937 !important; }
+.border-yellow { border-top: 4px solid #eab308; }
+
+.bg-green { background-color: #16a34a; }
+.border-green { border-top: 4px solid #16a34a; }
+
+.bg-gray { background-color: #6b7280; }
+.border-gray { border-top: 4px solid #6b7280; }
